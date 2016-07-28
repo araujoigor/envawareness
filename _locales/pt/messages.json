@@ -1,0 +1,67 @@
+{
+  "appDescription": {
+    "message":
+      "Uma extensão que visa prevenir que desenvolvedores realizem testes em ambientes errados (você nunca sabe quando você vai testar coisas em produção pensando que está no ambiente de testes).",
+    "description": "Application description"
+  },
+  "helpText": {
+    "message":
+      "Separe os domínios em que você deseja receber um alerta por vírgula e/ou ponto e vírgula e escolha a cor da tarja de notificação. Quando um desses domínios for acessado, uma tarja com a cor selecionada será apresentada na página.",
+    "description": "Help text presented on the help card"
+  },
+  "helpTextSmall": {
+    "message":
+      "PS: Os domínios são utilizados como parte de uma expressão regular. Portanto, você pode omitir informações como www, .com, etc.",
+    "description": "Small text presented on the help card"
+  },
+  "helpCardBtn": {
+    "message": "Ok, entendi!",
+    "description": "Dismiss button's text on help card"
+  },
+  "prodCardTitle": {
+    "message": "Configurações de Produção",
+    "description": "Production environment configuration card's title"
+  },
+  "homolCardTitle": {
+    "message": "Configurações de Homologação",
+    "description": "Homologation environment configuration card's title"
+  },
+  "devCardTitle": {
+    "message": "Configurações de Desenvolvimento",
+    "description": "Development environment configuration card's title"
+  },
+  "domain": {
+    "message": "Domínios",
+    "description": "Domain word"
+  },
+  "notificationBgColor": {
+    "message": "Cor de fundo da notificação",
+    "description": "Notification Background Color text"
+  },
+  "notificationTextColor": {
+    "message": "Cor de texto da notificação",
+    "description": "Notification Text Color text"
+  },
+  "saveBtnText": {
+    "message": "Salvar",
+    "description": "Save button text"
+  },
+  "saveConfigError": {
+    "message":
+      "Ocorreu um erro ao tentar salvar as configurações. Tente novamente.",
+    "description":
+      "Message presented during a error when trying to save user configs"
+  },
+  "saveConfigSuccess": {
+    "message":
+      "Preferências salvas com sucesso!",
+    "description":
+      "Message presented during a successfull save attempt"
+  },
+  "loadConfigError": {
+    "message":
+      "Ocorreu um erro ao tentar carregar as configurações. Tente novamente.",
+    "description":
+      "Message presented during a error when trying to load user configs"
+  }
+}

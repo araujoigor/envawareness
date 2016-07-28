@@ -1,0 +1,67 @@
+{
+  "appDescription": {
+    "message":
+      "A extension to prevent devs from using wrong environments (you never know when you'll test stuff in production without realizing)",
+    "description": "Application description"
+  },
+  "helpText": {
+    "message":
+      "Separate the domains in which you want  to receive an alert by comma and/or semicolon and select the color of the notification bar. When you access one of these domains, a bar with the selected color will be presented.",
+    "description": "Help text presented on the help card"
+  },
+  "helpTextSmall": {
+    "message":
+      "PS: The domains are used as part of a regular expression. Therefore you can omit information like www, .com, etc.",
+    "description": "Small text presented on the help card"
+  },
+  "helpCardBtn": {
+    "message": "Ok, got it!",
+    "description": "Dismiss button's text on help card"
+  },
+  "prodCardTitle": {
+    "message": "Production Environment Configuration",
+    "description": "Production environment configuration card's title"
+  },
+  "homolCardTitle": {
+    "message": "Tests Environment Configuration",
+    "description": "Homologation environment configuration card's title"
+  },
+  "devCardTitle": {
+    "message": "Development Environment Configuration",
+    "description": "Development environment configuration card's title"
+  },
+  "domain": {
+    "message": "Domains",
+    "description": "Domain word"
+  },
+  "notificationBgColor": {
+    "message": "Notification Background Color",
+    "description": "Notification Background Color text"
+  },
+  "notificationTextColor": {
+    "message": "Notification Text Color",
+    "description": "Notification Text Color text"
+  },
+  "saveBtnText": {
+    "message": "Save",
+    "description": "Save button text"
+  },
+  "saveConfigError": {
+    "message":
+      "Error while trying to save your configurations. Please, try again",
+    "description":
+      "Message presented during a error when trying to save user configs"
+  },
+  "saveConfigSuccess": {
+    "message":
+      "Preferences saved successfully.",
+    "description":
+      "Message presented during a successfull save attempt"
+  },
+  "loadConfigError": {
+    "message":
+      "Error while loading your configurations. Please, try again.",
+    "description":
+      "Message presented during a error when trying to load user configs"
+  }
+}

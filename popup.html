@@ -1,0 +1,234 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <title>Getting Started Extension's Popup</title>
+    <style>
+      body {
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%;
+        max-width: 800px;
+        min-width: 500px;
+      }
+
+      .mainText, .secondaryText{
+        text-align: justify;
+      }
+
+      #status {
+        /* avoid an excessively wide status text */
+        white-space: pre;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+      .card .card-content .card-title.strong{
+        font-weight: 400;
+      }
+
+      /* label focus color */
+      .input-field input[type=text]:focus + label {
+        color: #01579b !important;
+      }
+      /* label underline focus color */
+      .input-field input[type=text]:focus {
+        border-bottom: 1px solid #01579b !important;
+        box-shadow: 0 1px 0 0 #01579b !important;
+      }
+
+      .dismissable {
+        animation-duration: 0.7s;
+        animation-name: slideout;
+        animation-timing-function: ease-out;
+      }
+
+      @keyframes slideout {
+        from{
+          margin-left: 0%;
+          margin-right: 0%
+          opacity: 1;
+        }
+
+        to{
+          margin-left: 100%;
+          margin-right: -100%;
+          opacity: 0;
+        }
+
+        100% { display: none; }
+      }
+
+      .switch label input[type=checkbox]:checked+.lever{
+        background-color: #FFCC80 !important;
+      }
+      .switch label input[type=checkbox]:checked+.lever:after{
+        background-color: #FFA726 !important;
+      }
+
+      .switch.right label{ float: right; margin-right: 15px; }
+
+    </style>
+
+    <link rel="stylesheet" href="css/materialize.min.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="css/materialize-colorpicker.min.css" media="screen" charset="utf-8">
+
+    <script src="js/jquery.min.js" charset="utf-8"></script>
+    <script src="js/materialize.min.js" charset="utf-8"></script>
+    <script src="js/materialize-colorpicker.min.js" charset="utf-8"></script>
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+     -->
+    <script src="popup.js"></script>
+  </head>
+  <body>
+
+    <nav>
+      <div class="nav-wrapper light-blue darken-4">
+        <a href="#" class="brand-logo">EnvAwareness</a>
+        <div class="switch right">
+          <label class="white-text">
+            Off
+            <input type="checkbox" id="chkEnabled">
+            <span class="lever"></span>
+            On
+          </label>
+        </div>
+      </div>
+    </nav>
+
+    <div class="row">
+      <div class="col s12">
+
+        <div class="card-panel blue-grey darken-1" id="helpPanel">
+          <p class="white-text mainText">
+            Separate the domains in which you want  to receive an alert by
+            comma and/or semicolon and select the color of the notification bar.
+            When you access one of these domains, a bar with the selected color
+            will be presented.
+          </p>
+          <p class="white-text secondaryText">
+            <small>
+              PS: The domains are used as part of a regular expression. Therefore
+              you can omit information like www, .com, etc.
+            </small>
+          </p>
+          <div class="card-action">
+            <a class="waves-effect waves-light btn-flat orange-text text-accent-2"
+             id="dismissHelp">
+             Ok, got it!
+            </a>
+          </div>
+        </div>
+
+        <div class="card grey lighten-4" id="prodCard">
+          <div class="card-content">
+            <span class="card-title strong">
+              Production Environment Configuration
+            </span>
+            <div class="row">
+              <div class="input-field col s12">
+                <input class="domain" id="prodDomains" type="text">
+                <label class="domainLabel" for="prodDomains">
+                  Domains
+                </label>
+              </div>
+              <div class="input-field col s12">
+                <input class="color bgColor" id="prodColor" type="text" class="colorpicker-element">
+                <label class="notificationBgColor" for="prodColor">
+                  Notification Background Color
+                </label>
+              </div>
+              <div class="input-field col s12">
+                <input class="color fontColor" id="prodFontColor" type="text" class="colorpicker-element">
+                <label class="notificationTextColor" for="prodFontColor">
+                  Notification Text Color
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="card-action">
+            <a class="waves-effect waves-light btn save orange accent-2" id="production">
+              Save
+            </a>
+          </div>
+        </div>
+
+        <div class="card grey lighten-4" id="homolCard">
+          <div class="card-content">
+            <span class="card-title strong">
+              Tests Environment Configuration
+            </span>
+            <div class="row">
+              <div class="input-field col s12">
+                <input class="domain" id="homolDomains" type="text">
+                <label class="domainLabel" for="homolDomains">
+                  Domains
+                </label>
+              </div>
+              <div class="input-field col s12">
+                <input class="color bgColor" id="homolColor" type="text" class="colorpicker-element">
+                <label class="notificationBgColor" for="homolColor">
+                  Notification Background Color
+                </label>
+              </div>
+              <div class="input-field col s12">
+                <input class="color fontColor" id="homolFontColor" type="text"
+                 class="colorpicker-element">
+                <label class="notificationTextColor" for="homolFontColor">
+                  Notification Text Color
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="card-action">
+            <a class="waves-effect waves-light btn save orange accent-2"
+             id="homologation">
+              Save
+            </a>
+          </div>
+        </div>
+
+        <div class="card grey lighten-4" id="devCard">
+          <div class="card-content">
+            <span class="card-title strong">
+              Development Environment Configuration
+            </span>
+            <div class="row">
+              <div class="input-field col s12">
+                <input class="domain" id="devDomains" type="text">
+                <label class="domainLabel" for="devDomains">
+                  Domains
+                </label>
+              </div>
+              <div class="input-field col s12">
+                <input class="color bgColor" id="devColor" type="text" class="colorpicker-element">
+                <label class="notificationBgColor" for="devColor">
+                  Notification Background Color
+                </label>
+              </div>
+              <div class="input-field col s12">
+                <input class="color fontColor" id="devFontColor" type="text" class="colorpicker-element">
+                <label class="notificationTextColor" for="devFontColor">
+                  Notification Text Color
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="card-action">
+            <a class="waves-effect waves-light btn save orange accent-2"
+             id="development">
+              Save
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

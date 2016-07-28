@@ -9,11 +9,7 @@ if(chrome.runtime.onInstalled){
         enabled: false
       };
 
-      chrome.storage.local.set(initialValues, function() {
-        if(chrome.runtime.lastError){
-          console.info("Error while saving initial data. Error message: " + chrome.runtime.lastError.message);
-        }
-      });
+      chrome.storage.local.set(initialValues);
 
       var opt = {
         path: {

@@ -12,12 +12,7 @@ chrome.storage.local.get(null, function(data) {
       homologation: { domains: "", color: "#F0F000", fontColor: "#000" },
       development: { domains: "localhost;127.0.0.1;", color: "#000", fontColor: "#FFF"}
     };
-    chrome.storage.local.set(initialValues, function() {
-      if(chrome.runtime.lastError){
-        console.info("Error while saving initial data. Error message: " +
-        chrome.runtime.lastError.message);
-      }
-    });
+    chrome.storage.local.set(initialValues);
   }
 });
 
@@ -39,9 +34,6 @@ function savePreferences(data, prefType){
 
   chrome.storage.local.set(local, function() {
     if(chrome.runtime.lastError){
-      console.info("Error while saving data for prefType " + prefType +
-        ". Error message: " + chrome.runtime.lastError.message);
-
       Materialize.toast(chrome.i18n.getMessage("saveConfigError"), 2500);
     } else {
       Materialize.toast(chrome.i18n.getMessage("saveConfigSuccess"), 2500);
@@ -53,9 +45,6 @@ function loadPreferences(prefType, callback){
   var result = null;
   chrome.storage.local.get(prefType, function(data) {
     if(chrome.runtime.lastError){
-      console.info("Error while retrieving data for prefType " + prefType +
-        ". Error message: " + chrome.runtime.lastError.message);
-
       Materialize.toast(chrome.i18n.getMessage("loadConfigError"), 2500);
     } else
       result = data[prefType];

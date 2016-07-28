@@ -43,7 +43,10 @@ setTimeout(function(){
               newElement.style.zIndex = "1000";
               newElement.style.backgroundColor = data[keys[i]].color;
               newElement.style.bottom = 0;
-              document.getElementsByTagName("body")[0].appendChild(newElement);
+
+              var body = document.getElementsByTagName("body")[0];
+              body.appendChild(newElement);
+              body.style.marginBottom = "60px";
             }
             return;
           }

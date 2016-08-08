@@ -1,9 +1,5 @@
 <!doctype html>
-<!--
- This page is shown when the extension button is clicked, because the
- "browser_action" field in manifest.json contains the "default_popup" key with
- value "popup.html".
- -->
+
 <html>
   <head>
     <title>Getting Started Extension's Popup</title>
@@ -20,7 +16,6 @@
       }
 
       #status {
-        /* avoid an excessively wide status text */
         white-space: pre;
         text-overflow: ellipsis;
         overflow: hidden;
@@ -70,20 +65,26 @@
 
       .switch.right label{ float: right; margin-right: 15px; }
 
+      .input-field input.color,
+      .input-field input.color:focus{
+        margin-top: 10px;
+        border-radius: 5px;
+        border: 0;
+        box-shadow: 1px 1px 1px #777 !important;
+        padding-left: 5px;
+        border-bottom-color: transparent !important;
+      }
+
+      .cp-color-picker{ z-index: 99 !important; }
+
     </style>
 
     <link rel="stylesheet" href="css/materialize.min.css" media="screen" charset="utf-8">
-    <link rel="stylesheet" href="css/materialize-colorpicker.min.css" media="screen" charset="utf-8">
 
     <script src="js/jquery.min.js" charset="utf-8"></script>
     <script src="js/materialize.min.js" charset="utf-8"></script>
-    <script src="js/materialize-colorpicker.min.js" charset="utf-8"></script>
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
-     -->
+    <script src="js/jqColorPicker.min.js" charset="utf-8"></script>
+
     <script src="popup.js"></script>
   </head>
   <body>
@@ -139,16 +140,16 @@
                 </label>
               </div>
               <div class="input-field col s12">
-                <input class="color bgColor" id="prodColor" type="text" class="colorpicker-element">
-                <label class="notificationBgColor" for="prodColor">
+                <label class="colorLabel notificationBgColor" for="prodColor">
                   Notification Background Color
                 </label>
+                <input class="color bgColor" id="prodColor" type="text">
               </div>
               <div class="input-field col s12">
-                <input class="color fontColor" id="prodFontColor" type="text" class="colorpicker-element">
-                <label class="notificationTextColor" for="prodFontColor">
+                <label class="notificationTextColor colorLabel" for="prodFontColor">
                   Notification Text Color
                 </label>
+                <input class="color fontColor" id="prodFontColor" type="text">
               </div>
             </div>
           </div>
@@ -172,17 +173,16 @@
                 </label>
               </div>
               <div class="input-field col s12">
-                <input class="color bgColor" id="homolColor" type="text" class="colorpicker-element">
-                <label class="notificationBgColor" for="homolColor">
+                <label class="notificationBgColor colorLabel" for="homolColor">
                   Notification Background Color
                 </label>
+                <input class="color bgColor" id="homolColor" type="text" class="colorpicker-element">
               </div>
               <div class="input-field col s12">
-                <input class="color fontColor" id="homolFontColor" type="text"
-                 class="colorpicker-element">
-                <label class="notificationTextColor" for="homolFontColor">
+                <label class="notificationTextColor colorLabel" for="homolFontColor">
                   Notification Text Color
                 </label>
+                <input class="color fontColor" id="homolFontColor" type="text">
               </div>
             </div>
           </div>
@@ -207,16 +207,16 @@
                 </label>
               </div>
               <div class="input-field col s12">
-                <input class="color bgColor" id="devColor" type="text" class="colorpicker-element">
-                <label class="notificationBgColor" for="devColor">
+                <label class="notificationBgColor colorLabel" for="devColor">
                   Notification Background Color
                 </label>
+                <input class="color bgColor" id="devColor" type="text">
               </div>
               <div class="input-field col s12">
-                <input class="color fontColor" id="devFontColor" type="text" class="colorpicker-element">
-                <label class="notificationTextColor" for="devFontColor">
+                <label class="notificationTextColor colorLabel" for="devFontColor">
                   Notification Text Color
                 </label>
+                <input class="color fontColor" id="devFontColor" type="text">
               </div>
             </div>
           </div>

@@ -48,7 +48,7 @@ It is meant to work on any browser that supports the WebExtension standard.
 This project uses the following libraries to accomplish its goals:
   * jQuery (https://github.com/jquery/jquery)
   * Materialize (https://github.com/Dogfalo/materialize)
-  * Materialize Colorpicker (https://github.com/felipegruoso/materialize-colorpicker)
+  * tinyColorPicker (http://www.dematte.at/tinyColorPicker/index.html)
 
 ## Credits
   Igor Carvalho de Araújo (:

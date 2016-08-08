@@ -118,15 +118,14 @@ document.addEventListener('DOMContentLoaded', function() {
       if(pref && pref.domains)
         domainInput.value = pref.domains;
 
-      if(pref && pref.color){
-        colorInput.value = pref.color;
-        $(colorInput).colorpicker({ color: pref.color });
-      }
+      if(pref && pref.color)
+        colorInput.value = pref.color.toUpperCase();
 
-      if(pref && pref.fontColor){
-        fontColorInput.value = pref.fontColor;
-        $(fontColorInput).colorpicker({ color: pref.fontColor });
-      }
+      if(pref && pref.fontColor)
+        fontColorInput.value = pref.fontColor.toUpperCase();
+
+      $(colorInput).colorPicker();
+      $(fontColorInput).colorPicker();
     });
   }
 
